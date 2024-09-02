@@ -7,10 +7,10 @@ function useTemp(temp, toFixed = 0) {
   } = useContext(AppContext);
 
   if (unit.toLowerCase() === "f") {
-    return ((temp * 9) / 5 + 32).toFixed(toFixed);
+    return (((temp - 273.15) * 9) / 5 + 32).toFixed(toFixed);
   }
 
-  return parseFloat(temp).toFixed(toFixed);
+  return parseFloat(temp - 273.15).toFixed(toFixed);
 }
 
 export default useTemp;
